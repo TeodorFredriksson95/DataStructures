@@ -1,4 +1,24 @@
 ﻿
+using DataStructures;
+
+Console.WriteLine("Create encoded Tetris byte file");
+
+TetrisEncoder.Main();
+
+Console.WriteLine("----------------------------------------------------------------------------");
+
+
+Console.WriteLine("\nModulus Remainder Calcs");
+int o = 256000;
+int modulus = 640;
+int remainder = o % modulus;
+
+int heightY = o / 640;
+
+Console.WriteLine($"int i: {o} % {modulus} == {remainder}. row = {heightY}");
+
+Console.WriteLine("\n------------------------------------------------------------------");
+
 
 // Left-shift array
 Console.WriteLine("\n Left Shift Array");
