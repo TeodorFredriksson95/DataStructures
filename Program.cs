@@ -1,5 +1,6 @@
 ﻿
 using DataStructures;
+using DataStructures.Algorithms;
 using DataStructures.SelfStudy;
 
 Console.WriteLine("Create encoded Tetris byte file");
@@ -197,3 +198,8 @@ Lesson1.Main();
 Console.WriteLine("--------- Self Study - Lesson 2 ---------------");
 Lesson2.Main();
 
+Console.WriteLine("--------- Algorithms Lecture ---------------");
+Sorts.Main();
+
+Console.WriteLine("-------------- Recursions ------------------------");
+Recursions.Main();
