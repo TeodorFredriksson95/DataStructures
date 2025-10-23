@@ -15,7 +15,7 @@ namespace DataStructures.Algorithms
             int[] m_iArray = { 23, 45, 21, 23, 11, 2, 1, 59, 100 };
             int[] m_iPerformanceArray = new int[200];
 
-            // Basic sort, no performance in mind
+            // Basic sort, no performance in mind O(n^2)
             for (int Left = 0; Left < m_iPerformanceArray.Length; Left++)
             {
                 for (int Right = Left + 1; Right < m_iPerformanceArray.Length; Right++)
