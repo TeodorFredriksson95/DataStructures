@@ -1,6 +1,7 @@
 ﻿
 using DataStructures;
 using DataStructures.Algorithms;
+using DataStructures.Repetition;
 using DataStructures.SelfStudy;
 
 Console.WriteLine("Create encoded Tetris byte file");
@@ -206,6 +207,12 @@ Sorts.Main();
 
 Console.WriteLine("-------------- Recursions ------------------------");
 Recursions.Main();
+
+Console.WriteLine("-------------- REPETITION ------------------------");
+Shifts.ShiftsFunc();
+
+Console.WriteLine();
+QuickSort.QuickSortMain();
 
 Console.WriteLine("---------------- Delegates -----------------------");
 Delegates.Main();
