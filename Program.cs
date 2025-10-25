@@ -68,10 +68,10 @@ for (int i = 0; i < intArray.Length; i++)
     Console.Write(intArray[i] + ", "); // 2, 10, 55, 32, 2, 5, 3
 }
 
-    int[] Shift(int[] array, int k) // k = the amount of positions we want to shift a value.
-    {
+int[] Shift(int[] array, int k) // k = the amount of positions we want to shift a value.
+{
 
-        var result = new int[array.Length]; // Creating a new array is what causes the linear complexity. The memory required to handle the input is equivalent to the input size.
+    var result = new int[array.Length]; // Creating a new array is what causes the linear complexity. The memory required to handle the input is equivalent to the input size.
     for (int i = 0; i < array.Length; i++)
     {
         result[(i + k) % array.Length] = array[i];
@@ -109,7 +109,7 @@ for (int i = 0; i < intArray.Length; i++)
 
     }
     return result;
-    }
+}
 
 // Constant space complexity
 //Shift using modulus and without bound checking
@@ -119,7 +119,7 @@ int[] ShiftConstantComplexity(int[] array, int k)
     for (int times = 0; times < k; times++) //Repeat the array iterations for as many times as the value should be shifted, defined by k. Not as performant, but constant complexity.
     {
         int tmp = array[array.Length - 1]; //Get the last element in array.
-        for (int i = array.Length -1; i > 0 ; i--) //Start from the last element and countdown to 0+1.
+        for (int i = array.Length - 1; i > 0; i--) //Start from the last element and countdown to 0+1.
         {
             array[i] = array[i - 1]; // If array length is 4 then on first iteration then this line becomes array[3] = array[3-1]. Shifting right.
         }
@@ -129,7 +129,7 @@ int[] ShiftConstantComplexity(int[] array, int k)
     return array;
 }
 
-PrintArrayElements(ShiftConstantComplexity(new int[] {1,2,3,4,5}, 2));
+PrintArrayElements(ShiftConstantComplexity(new int[] { 1, 2, 3, 4, 5 }, 2));
 
 Console.WriteLine("\n Shifting Array Left With Modulus Operator - Constant space complexity");
 int[] testArray3 = { 1, 2, 3, 4, 5 };
@@ -139,7 +139,7 @@ int[] ShiftLeftConstantComplexity(int[] array, int k)
     for (int times = 0; times < k; times++)
     {
         int tmp = array[0]; // Get first element in array
-        for (int i = 0; i < array.Length -1; i++) // Start from first element, but stop before last
+        for (int i = 0; i < array.Length - 1; i++) // Start from first element, but stop before last
         {
             array[i] = array[i + 1]; //Shift second to first element to the first.
         }
@@ -198,8 +198,14 @@ Lesson1.Main();
 Console.WriteLine("--------- Self Study - Lesson 2 ---------------");
 Lesson2.Main();
 
+Console.WriteLine("--------- Self Study - Lesson 3 ---------------");
+Lesson3.Main();
+
 Console.WriteLine("--------- Algorithms Lecture ---------------");
 Sorts.Main();
 
 Console.WriteLine("-------------- Recursions ------------------------");
 Recursions.Main();
+
+Console.WriteLine("---------------- Delegates -----------------------");
+Delegates.Main();

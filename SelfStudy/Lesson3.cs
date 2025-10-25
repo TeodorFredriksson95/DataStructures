@@ -1,42 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace DataStructures.Algorithms
+namespace DataStructures.SelfStudy
 {
-    public class Sorts
+    public class Lesson3
     {
         public static void Main()
         {
-            int iComparisons = 0;
-            int[] m_iArray = { 23, 45, 21, 23, 11, 2, 1, 59, 100 };
-            int[] m_iPerformanceArray = new int[200];
-
-            // Basic sort, no performance in mind
-            for (int Left = 0; Left < m_iPerformanceArray.Length; Left++)
-            {
-                for (int Right = Left + 1; Right < m_iPerformanceArray.Length; Right++)
-                {
-                    int temp = m_iPerformanceArray[Left];
-                    if (m_iPerformanceArray[Right] < m_iPerformanceArray[Left])
-                    {
-                        m_iPerformanceArray[Left] = m_iPerformanceArray[Right];
-                        m_iPerformanceArray[Right] = temp;
-                    }
-                    iComparisons++;
-                }
-            }
-            Console.WriteLine("Sorted nr array");
-
-            foreach (var nr in m_iPerformanceArray)
-            {
-                Console.Write(nr + ", ");
-            }
-            Console.WriteLine("Number of comparions made in the above sort: " + iComparisons);
-
 
             Console.WriteLine("------------ Quick Sort -------------------");
 
@@ -127,10 +101,19 @@ namespace DataStructures.Algorithms
                 if (leftIndex < j) //If 0 < current right index position. After the while loop finishes the first time, this equates to: if 0 < 4
                     QuickSort(iArray, leftIndex, j); //Sort again 
 
-                return new int[2];
+                if (i < rightIndex) // If i < array length minus 1. On first iteration, this equates to: if 5 < 8.
+                    QuickSort(iArray, i, rightIndex);
+
+                return iArray;
+
             }
 
             QuickSort(m_iQSArray, 0, m_iQSArray.Length - 1);
+            foreach (var item in m_iQSArray)
+            {
+                Console.Write(item + ", ");
+            }
+            Console.WriteLine();
         }
     }
 }
