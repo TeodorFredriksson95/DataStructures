@@ -22,6 +22,7 @@
         private delegate void DelegateWithArgs(int x, int y);
         private delegate string BoolDelegate(bool isDifficult);
 
+
         private Action<int, string> actionDelegate;
 
         public static void Main()
@@ -74,6 +75,8 @@
             // Here, we use the delegate we defined above using an anonymous function, a lambda expression and a function body
             Console.WriteLine(m_delegateWithArgsAnonymous(false));
 
+            DelegateWithArgs addDelegate = (x, y) => Console.WriteLine(x + y);
+            addDelegate(5, 10);
 
 
         }

@@ -216,3 +216,7 @@ QuickSort.QuickSortMain();
 
 Console.WriteLine("---------------- Delegates -----------------------");
 Delegates.Main();
+
+
+Console.WriteLine("---------------- Events -----------------------");
+EventsTest.Main();
