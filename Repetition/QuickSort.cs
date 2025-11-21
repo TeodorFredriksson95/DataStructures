@@ -18,7 +18,7 @@ namespace DataStructures.Repetition
                 Console.Write(item + ", ");
             }
         }
-        static void QuickSortFunc(int[] iArray, int leftIndex, int rightIndex)
+       public static int[] QuickSortFunc(int[] iArray, int leftIndex, int rightIndex)
         {
 
             //Find value in the middle of the array
@@ -54,6 +54,7 @@ namespace DataStructures.Repetition
               
             }
 
+            return iArray;
         }
 
     }

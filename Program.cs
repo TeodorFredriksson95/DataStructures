@@ -199,6 +199,11 @@ Lesson1.Main();
 Console.WriteLine("--------- Self Study - Lesson 2 ---------------");
 Lesson2.Main();
 
+Console.WriteLine("--------- Self Study - Lesson 6 ---------------");
+Lesson6.LinearSearchFunc();
+
+Lesson6.BinarySearch();
+
 Console.WriteLine("--------- Self Study - Lesson 3 ---------------");
 Lesson3.Main();
 
