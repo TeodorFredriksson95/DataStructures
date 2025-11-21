@@ -220,3 +220,6 @@ Delegates.Main();
 
 Console.WriteLine("---------------- Events -----------------------");
 EventsTest.Main();
+
+Console.WriteLine("---------------- Linked Lists -----------------------");
+LinkedListPractice.Main();
