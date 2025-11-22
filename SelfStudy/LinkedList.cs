@@ -24,6 +24,8 @@ namespace DataStructures.SelfStudy
             linkedList.Add(2);
             LLNode<int> node = linkedList.Find(2);
             linkedList.AddAfter(node, 20);
+            node = linkedList.Find(20);
+            linkedList.AddBefore(node, 10);
         }
     }
 
@@ -85,7 +87,7 @@ namespace DataStructures.SelfStudy
             get { return head.prev; }
         }
 
-       public void Add(T value)
+        public void Add(T value)
         {
             AddLast(value);
         }
@@ -101,6 +103,12 @@ namespace DataStructures.SelfStudy
                 InternalInsertNodeBefore(head, result);
             }
             return result;
+        }
+
+        public void RemoveLast()
+        {
+            head.prev = head.prev.prev;
+            head.prev.next = head;
         }
 
         private void InternalInsertNodeToEmptyList(LLNode<T> newNode)
@@ -131,6 +139,13 @@ namespace DataStructures.SelfStudy
             return result;
 
             // Need to create Find method in order to supply the proper LLnode<T> node param in caller
+        }
+
+        public LLNode<T> AddBefore(LLNode<T> node, T value)
+        {
+            LLNode<T> result = new LLNode<T>(node.list, value);
+            InternalInsertNodeBefore(node, result);
+            return result;
         }
 
         public LLNode<T> Find(T value)
