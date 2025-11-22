@@ -16,9 +16,6 @@ namespace DataStructures.SelfStudy
             list.AddFirst(2);
 
             LinkedList<int> linkedList = new LinkedList<int>();
-            //linkedList.AddFirst(5);
-            //linkedList.AddLast(2);
-            //linkedList.InsertAt(1, 10);
 
 
             linkedList.Add(2);
@@ -35,7 +32,6 @@ namespace DataStructures.SelfStudy
         public LLNode<T> next;
         public LLNode<T> prev;
         public T item;
-        //public int Count => next == null ? 1 : next.Count + 1; // Recursive
 
         public LLNode(T value)
         {
@@ -76,7 +72,6 @@ namespace DataStructures.SelfStudy
         public LLNode<T> head;
 
         #region Properties
-        //public int Count => head.Count;
         public int Count = 0;
         public LLNode<T> First
         {

@@ -1,6 +1,7 @@
 ﻿
 using DataStructures;
 using DataStructures.Algorithms;
+using DataStructures.BinaryTree;
 using DataStructures.Repetition;
 using DataStructures.SelfStudy;
 
@@ -228,3 +229,11 @@ EventsTest.Main();
 
 Console.WriteLine("---------------- Linked Lists -----------------------");
 LinkedListPractice.Main();
+
+
+Console.WriteLine("---------------- Binary Trees -----------------------");
+TreeExample treeEx = new TreeExample();
+treeEx.Main();
+
+Node<int> intNode = new Node<int>(5);
+intNode.Main();
