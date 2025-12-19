@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DataStructures.BinaryTree
 {
@@ -80,8 +81,149 @@ namespace DataStructures.BinaryTree
             //NOTE: Breadth-First binary trees DONT mix well with recursion. Recursion leans on stack structures, and Queues work pretty much
             // "the opposite" of that. You'll be clawing your eyes out trying to implement a recursive func on a queue structure. Just use
             // iterative logic.
+
+            Console.WriteLine("Manual Breadth First Sum");
+            int breadthSum = intNode.TreeSum(intNode);
+            Console.WriteLine("Sum of tree: " + breadthSum);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Recursive Depth First Sum");
+            int recSum = intNode.TreeSumRecursive(intNode);
+            Console.WriteLine("Sum of tree: " + recSum);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Manual Depth-First min value");
+            int manMinVal = intNode.TreeMinValue(intNode);
+            Console.WriteLine("Min value of tree: " + manMinVal);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Manual Depth-First max value");
+            int manMaxVal = intNode.TreeMaxValue(intNode);
+            Console.WriteLine("Max value of tree: " + manMaxVal);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Recursive Depth-First min value");
+            int recMinVal = intNode.TreeMinValueRecursive(intNode);
+            Console.WriteLine("Min value of tree: " + recMinVal);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Recursive Depth-First max value");
+            int recMaxVal = intNode.TreeMaxValueRecursive(intNode);
+            Console.WriteLine("Max value of tree: " + recMaxVal);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Recursive Depth-First max root to leaf sum");    
+            int recMaxRootToLeafVal = intNode.MaxRootToLeafSumRecursive(intNode);
+            Console.WriteLine("Max root to leaf value: " + recMaxRootToLeafVal);
         }
 
+        int MaxRootToLeafSumRecursive(Node<int> root)
+        {
+            if (root == null) return int.MinValue;
+
+            if (root.right == null && root.left == null) return root.value;
+
+            int maxChildPathSum = Math.Max(MaxRootToLeafSumRecursive(root.left), MaxRootToLeafSumRecursive(root.right));
+
+            return root.value + maxChildPathSum;
+        }
+
+        int TreeMinValueRecursive(Node<int> root)
+        {
+            if (root == null) return int.MaxValue;
+
+            int rightVal = TreeMinValueRecursive(root.right);
+            int leftVal = TreeMinValueRecursive(root.left);
+
+            return Math.Min(Math.Min(rightVal, leftVal), root.value);
+        }
+        int TreeMaxValueRecursive(Node<int> root)
+        {
+            if (root == null) return int.MinValue;
+
+            int rightVal = TreeMaxValueRecursive(root.right);
+            int leftVal = TreeMaxValueRecursive(root.left);
+
+            return Math.Max(Math.Max(rightVal, leftVal), root.value);
+        }
+
+        int TreeMinValue(Node<int> root)
+        {
+            if (root == null) return 0;
+
+            Stack<Node<int>> stack = new();
+            stack.Push(root);
+            int smallest = int.MaxValue;
+
+            while(stack.Count > 0)
+            {
+                Node<int> current = stack.Pop();
+                if (current.value < smallest) smallest = current.value;
+                if (current.left != null) stack.Push(current.left);
+                if (current.right != null) stack.Push(current.right);
+            }
+            return smallest;
+        }
+        int TreeMaxValue(Node<int> root)
+        {
+            if (root == null) return 0;
+
+            Stack<Node<int>> stack = new();
+            stack.Push(root);
+            int biggest = int.MinValue;
+
+            while(stack.Count > 0)
+            {
+                Node<int> current = stack.Pop();
+                if (current.value > biggest) biggest = current.value;
+                if (current.left != null) stack.Push(current.left);
+                if (current.right != null) stack.Push(current.right);
+            }
+            return biggest;
+        }
+
+        int TreeSumRecursive(Node<int> root)
+        {
+            if (root == null) return 0;
+            return root.value + TreeSumRecursive(root.left) + TreeSumRecursive(root.right);
+        }
+
+        int TreeSum(Node<T> root)
+        {
+            if (root == null) return 0;
+
+            Queue<Node<T>> queue = new Queue<Node<T>>();
+            queue.Enqueue(root);
+            Node<T> current;
+            int amount = 0;
+            
+            while (queue.Count > 0)
+            {
+                current = queue.Dequeue();
+                amount += Convert.ToInt32(current.value);
+
+                if (current.left != null)
+                    queue.Enqueue(current.left);
+                
+                if (current.right != null)
+                    queue.Enqueue(current.right);
+            }
+            return amount;
+        }
+
+        bool TreeIncludes(Node<T> root, T value)
+        {
+            if (root == null) return false;
+            if (EqualityComparer<T>.Default.Equals(root.value, value)) return true;
+
+            return (TreeIncludes(root.left, value) || TreeIncludes(root.right, value));
+        }
         void ManualBreadthFirstTraversal(Node<T> root)
         {
             if (root == null) return;

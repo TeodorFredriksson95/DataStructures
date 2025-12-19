@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//NOTE: This Tree is NOT binary. It does not follow less than / greater than rules.
+
 namespace DataStructures.BinaryTree
 {
     public class TreeExample

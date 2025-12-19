@@ -3,6 +3,7 @@ using DataStructures;
 using DataStructures.Algorithms;
 using DataStructures.BinaryTree;
 using DataStructures.Repetition;
+using DataStructures.Repetition.BinaryTree;
 using DataStructures.SelfStudy;
 
 Console.WriteLine("Create encoded Tetris byte file");
@@ -237,3 +238,6 @@ treeEx.Main();
 
 Node<int> intNode = new Node<int>(5);
 intNode.Main();
+
+Console.WriteLine("---------------- Binary Search Trees REPETITION -----------------------");
+RunBinarySearchTree.Main();
